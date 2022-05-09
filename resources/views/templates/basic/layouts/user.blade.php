@@ -16,7 +16,7 @@
     <!-- icons
     ================================================== -->
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/icons.css') }}">
-
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/uikit.css') }}">
@@ -34,7 +34,7 @@
 
         <!-- Main Contents -->
         @yield('content')
-
+        <div id="example"></div>
     </div>
 
     @yield('birthday')
@@ -82,7 +82,7 @@
     </script>
 
     @include('partials.notify')
-
+    <script src="{{mix('js/app.js')}}"></script>
     <!-- Javascript
     ================================================== -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

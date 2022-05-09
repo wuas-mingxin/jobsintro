@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf14086919a839fe740e00554e4baff6",
+    "content-hash": "aa254416c0049c2c01c822fa6f21dd7c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -61,6 +61,58 @@
                 "source": "https://github.com/asm89/stack-cors/tree/v2.1.1"
             },
             "time": "2022-01-18T09:12:03+00:00"
+        },
+        {
+            "name": "avihs/laravel-post-comment-reply",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shivragshukla/laravel-post-comment-reply.git",
+                "reference": "add9619bd13b6cd729661721bb724f5355de1ab0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shivragshukla/laravel-post-comment-reply/zipball/add9619bd13b6cd729661721bb724f5355de1ab0",
+                "reference": "add9619bd13b6cd729661721bb724f5355de1ab0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Avihs\\PostReply\\PostCommentReplyServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Avihs\\PostReply\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shivrag",
+                    "email": "shivrag.shukla001@gmail.com"
+                }
+            ],
+            "description": "This will create a post, comment, likes and reply & save in database",
+            "keywords": [
+                "comments",
+                "posts",
+                "replies"
+            ],
+            "support": {
+                "issues": "https://github.com/shivragshukla/laravel-post-comment-reply/issues",
+                "source": "https://github.com/shivragshukla/laravel-post-comment-reply/tree/master"
+            },
+            "time": "2020-09-05T17:02:41+00:00"
         },
         {
             "name": "brick/math",
@@ -7972,5 +8024,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

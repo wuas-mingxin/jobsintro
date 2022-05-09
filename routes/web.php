@@ -30,6 +30,10 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::post('/privacy-setting-store', [App\Http\Controllers\WuasUserController::class, 'privacySettingStore'])->name('privacySetting.store');
     Route::get('/change-password-setting', [App\Http\Controllers\WuasUserController::class, 'password'])->name('password');
     Route::post('/change-password-update', [App\Http\Controllers\WuasUserController::class, 'passwordUpdate'])->name('password.update');
+    Route::get('/posts', [App\Http\Controllers\WuasPostController::class, 'index'])->name('posts');
+    Route::get('/comments/{post}', [App\Http\Controllers\CommentController::class, 'getCommentOfThisPost'])->name('posts.comments');
+    Route::get('/comments/', [App\Http\Controllers\CommentController::class, 'getAllComments'])->name('posts.getAllComments');
+    Route::post('/add-comment', [App\Http\Controllers\CommentController::class, 'addComment'])->name('posts.addComment');
 });
 
 
