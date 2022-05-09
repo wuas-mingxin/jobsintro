@@ -67,7 +67,7 @@ function Posts() {
                                             <img src={"http://"+window.location.hostname+":8000/"+value.user.avtar} className="bg-gray-200 border border-white rounded-full w-10 h-10"/>
                                         </a>
                                         <div className="flex-1 font-semibold capitalize">
-                                            <a href="#" className="text-black dark:text-gray-100"> {value.user.firstname} {value.user.lastname} </a>
+                                            <a href="#" className="text-white dark:text-gray-100"> {value.user.firstname} {value.user.lastname} </a>
                                             <div className="text-gray-700 flex items-center space-x-2">{moment(moment(value.created_at).format('YYYY.MM.DDTHH:mm:ss'), 'YYYY.MM.DDTHH:mm:ss').fromNow()} <ion-icon name="people"></ion-icon></div>
                                         </div>
                                     </div>
@@ -168,8 +168,7 @@ function Posts() {
                                     </div>
                                     {/*Comments Section*/}
                                     <div className={`border-t py-4 space-y-4 dark:border-gray-600 comments${value.id}`} id={`comments${value.id}`}>
-                                        <h1>{commentShow.id} {value.id} {commentShow.show}</h1>
-                                        {commentShow.id == value.id && commentShow.show ? <ShowComments id={value.id}/> : "not true"}
+                                        {commentShow.id == value.id && commentShow.show ? <ShowComments id={value.id}/> : ""}
                                     </div>
 
                                     {/* <button className={`hover:text-blue-600 hover:underline button-show-more${value.id}`} onClick={() => showComment(value.id)}>  Veiw {value.comments.length} comments </button> */}

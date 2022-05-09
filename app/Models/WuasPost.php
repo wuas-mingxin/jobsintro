@@ -12,10 +12,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Avihs\PostReply\Traits\HasComment;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 class WuasPost extends Model
 {
-    use HasComment;
+    use HasComment,Likeable;
 
     protected $guarded = [];
     protected $with = ['user', 'comments'];

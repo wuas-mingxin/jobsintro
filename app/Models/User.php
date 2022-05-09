@@ -8,10 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Avihs\PostReply\Traits\HasPost;
-
+use Overtrue\LaravelLike\Traits\Liker;
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasPost;
+    use HasApiTokens, HasFactory, Notifiable,HasPost,Liker;
 
     /**
      * The attributes that are mass assignable.
