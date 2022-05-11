@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Avihs\PostReply\Traits\HasComment;
 use Overtrue\LaravelLike\Traits\Likeable;
+use Overtrue\LaravelLike\Like;
 
 class WuasPost extends Model
 {
@@ -44,6 +45,17 @@ class WuasPost extends Model
     {
         return $this->hasManyThrough(Reply::class, Comment::class);
     }
+    
+   
+
+    public function liked(): bool
+    {
+        $like = Like::where('user_id',auth()->user()->id)->where('likeable_id',$this->id)->count();
+        if($like>0){
+            return true;
+        }
+        return $like;
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -55,4 +67,6 @@ class WuasPost extends Model
         $this->comments()->delete(); 
         return parent::delete();;
     }
+
 }
+

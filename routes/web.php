@@ -34,6 +34,7 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::get('/comments/{post}', [App\Http\Controllers\CommentController::class, 'getCommentOfThisPost'])->name('posts.comments');
     Route::get('/comments/', [App\Http\Controllers\CommentController::class, 'getAllComments'])->name('posts.getAllComments');
     Route::post('/add-comment', [App\Http\Controllers\CommentController::class, 'addComment'])->name('posts.addComment');
+    Route::get('/like/{post}', [App\Http\Controllers\WuasPostController::class, 'like'])->name('posts.like');
 });
 
 

@@ -16,12 +16,15 @@
     <!-- icons
     ================================================== -->
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/icons.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <!-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> -->
+   
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/uikit.css') }}">
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/style.css') }}">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    @livewireStyles
     @include('partials.seo')
 
 </head>
@@ -82,7 +85,8 @@
     </script>
 
     @include('partials.notify')
-    <script src="{{mix('js/app.js')}}"></script>
+    
+    @livewireScripts
     <!-- Javascript
     ================================================== -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -92,6 +96,5 @@
     <script src="{{ asset($activeTemplateTrue . 'assets/js/custom.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue . 'assets/js/bootstrap-select.min.js') }}"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-
 </body>
 </html>
