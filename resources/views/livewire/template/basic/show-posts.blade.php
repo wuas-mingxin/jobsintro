@@ -79,7 +79,7 @@
                     <div>Like</div>
                 </button>
                 
-                <button class="flex items-center space-x-2 flex-1 justify-center" wire:click="showComments('{{$post->id}}')">
+                <button class="flex items-center space-x-2 flex-1 justify-center {{count($post->comments)==0 ? 'disabled' : ''}}"  {{count($post->comments)==0 ? 'disabled' : ''}}  wire:click="showComments('{{$post->id}}')" >
                     <div class="p-2 rounded-full  text-black lg:bg-black-100 dark:bg-black-100">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22" class="dark:text-gray-100">
                             <path fillRule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clipRule="evenodd" />
@@ -119,10 +119,8 @@
 
             {{--<button class='hover:text-blue-600 hover:underline button-show-more{{$post->id}}'>  Veiw {value.comments.length} comments </button> --}}
             {{-- /*Comments Section*/ --}}
-
             <div class="bg-gray-100 rounded-full relative dark:bg-gray-800 border-t">
-                <h1>{{$comment}}</h1>
-                <input placeholder="Add your Comment.." name='comment' wire:model="comment"  wire:keydown.enter="addCommentToDatabase('{{$post->id}}')" class="bg-transparent max-h-10 shadow-none px-5"/>
+                <input placeholder="Add your Comment.." name='comment' wire:model="comment.{{$post->id}}"  wire:keydown.enter="addCommentToDatabase('{{$post->id}}')" class="bg-transparent max-h-10 shadow-none px-5"/>
                 <div class="-m-0.5 absolute bottom-0 flex items-center right-3 text-xl">
                     <a href="#">
                         <ion-icon name="happy-outline" class="hover:bg-gray-200 p-1.5 rounded-full"></ion-icon>

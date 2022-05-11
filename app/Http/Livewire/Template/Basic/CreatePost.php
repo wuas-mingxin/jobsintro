@@ -11,7 +11,6 @@ class CreatePost extends Component
 {
     use WithFileUploads;
     public $post_text;
-    public $url;
     public $photo='';
     public function render()
     {
@@ -41,8 +40,6 @@ class CreatePost extends Component
         $post->post_text = $this->post_text;
         $post->status = 1;
         $post->save();
-        session()->flash('message', 'Image successfully Uploaded.');
-
-       
+        $this->dispatchBrowserEvent('closeModal');  
     }
 }

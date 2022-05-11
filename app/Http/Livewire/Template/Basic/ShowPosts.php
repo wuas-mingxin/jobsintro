@@ -8,7 +8,7 @@ class ShowPosts extends Component
 { 
     
    
-    public $comment;
+    public $comment= [];
     public $showComments = ['post_id'=> 0, 'show'=>false];
     public $perPage=5;
 
@@ -28,8 +28,9 @@ class ShowPosts extends Component
 
     public function addCommentToDatabase($post)
     {
-        $post = WuasPost::find($post);
-        $comment = $post->addComment($this->comment, auth()->user());
+        $commentPost = WuasPost::find($post);
+        $comment = $commentPost->addComment($this->comment[$post], auth()->user());
+        $this->comment[$post] = '';
         $this->emit('commentAdded');
     }
    
@@ -42,7 +43,7 @@ class ShowPosts extends Component
     public function render()
     {
         $posts =  WuasPost::select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file'))
-        ->with(['user','comments'])->where('status',1)->paginate($this->perPage);
+        ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage);
        
         return view('livewire.template.basic.show-posts',[
             'posts'=>$posts

@@ -2,7 +2,7 @@
    <!-- Craete post modal -->
     <div id="create-post-modal" class="create-post is-story" uk-modal>
         <form wire:submit.prevent="save">
-            <div
+            <div id="model_create_post"
                 class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical rounded-lg p-0 lg:w-5/12 relative shadow-2xl uk-animation-slide-bottom-small">
 
                 <div class="text-center py-3 border-b">
@@ -14,7 +14,7 @@
                     <img src="{{asset(auth()->user()->avtar)}}"
                         class="bg-gray-200 border border-white rounded-full w-11 h-11">
                     <div class="flex-1 pt-2">
-                        <textarea wire:model.debounce.500ms="post_text" class="uk-textare text-white shadow-none focus:shadow-none text-xl font-medium resize-none" rows="5"
+                        <textarea wire:model.debounce.500ms="post_text" id="post_text" class="uk-textare text-white shadow-none focus:shadow-none text-xl font-medium resize-none" rows="5"
                             placeholder="What's Your Mind ? {{auth()->user()->firstname}}!"> </textarea>
                     </div>
 
@@ -68,4 +68,16 @@
             </div>
         </form>
     </div>
-</div>
+    <style>
+    .uk-modal-footer{
+        color:black;
+    }
+    </style>
+<script>
+    window.addEventListener('closeModal', event => {
+        document.getElementById("post_text").value = "";
+        UIkit.modal('#create-post-modal').toggle();
+        UIkit.modal.alert('Post Created Successfully')
+    })
+</script>
+<div>
