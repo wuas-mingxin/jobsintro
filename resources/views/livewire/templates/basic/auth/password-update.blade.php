@@ -24,7 +24,7 @@
                             </div>
 
                             <div>
-                                <label for="password-confirm">Confirm Password</label>
+                                <label for="password_confirm">Confirm Password</label>
                                 <input type="password" id="password_confirm" placeholder="********"  name="password_confirmation" autocomplete="new-password" class="shadow-none with-border">
                                 <span id="confPwd"></span>
                             </div>
