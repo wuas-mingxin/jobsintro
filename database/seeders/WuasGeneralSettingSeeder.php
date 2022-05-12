@@ -16,7 +16,7 @@ class WuasGeneralSettingSeeder extends Seeder
     {
         DB::table('wuas_general_settings')->insert([
             'website_name' => 'JobsIntro',
-            'website_logo' => 'JobsIntro',
+            'website_logo' => 'wuas-content/upload/images/website-logo.png',
             'website_description' => 'This is website description',
             'active_template' => 'basic',
             'cur_text' => 'USD',

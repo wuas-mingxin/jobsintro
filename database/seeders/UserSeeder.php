@@ -18,9 +18,9 @@ class UserSeeder extends Seeder
             'name' => 'WUAS',
             'username' => 'user',
             'email' => 'user@wuas.com',
-            'avtar' => 'wuas-content/upload/images/user.jpg',
-            'cover' => 'wuas-content/upload/images/user.jpg',
-            'background_image' => 'wuas-content/upload/images/user.jpg',
+            'avtar' => 'wuas-content/upload/images/d-avatar.jpg',
+            'cover' => 'wuas-content/upload/images/d-cover.jpg',
+            'background_image' => 'wuas-content/upload/images/d-cover.jpg',
             'password' => Hash::make('password'),
         ]);
     }
