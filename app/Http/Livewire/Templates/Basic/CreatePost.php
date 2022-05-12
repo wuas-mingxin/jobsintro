@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Template\Basic;
+namespace App\Http\Livewire\Templates\Basic;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -14,7 +14,7 @@ class CreatePost extends Component
     public $photo='';
     public function render()
     {
-        return view('livewire.template.basic.create-post');
+        return view('livewire.templates.basic.create-post');
     }
 
     public function save()

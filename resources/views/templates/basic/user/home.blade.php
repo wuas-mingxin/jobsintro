@@ -47,9 +47,9 @@
                     </div>
                 </div>
 
-                @livewire('template.basic.show-posts')
+                @livewire($activeTemplate . 'show-posts')
 
-                
+
 
             </div>
             <div class="lg:w-72 w-full">
@@ -333,5 +333,5 @@
 @endsection
 
 @section('createPostModal')
-    @livewire('template.basic.create-post')
+    @livewire($activeTemplate . 'create-post')
 @endsection

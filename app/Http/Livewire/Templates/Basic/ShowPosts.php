@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Template\Basic;
+namespace App\Http\Livewire\Templates\Basic;
 
 use Livewire\Component;
 use App\Models\WuasPost;
@@ -45,7 +45,7 @@ class ShowPosts extends Component
         $posts =  WuasPost::select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file'))
         ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage);
        
-        return view('livewire.template.basic.show-posts',[
+        return view('livewire.templates.basic.show-posts',[
             'posts'=>$posts
         ]);
     }

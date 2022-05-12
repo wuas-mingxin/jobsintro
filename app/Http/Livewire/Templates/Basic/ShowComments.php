@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Template\Basic;
+namespace App\Http\Livewire\Templates\Basic;
 
 use Livewire\Component;
 
@@ -15,6 +15,6 @@ class ShowComments extends Component
     }
     public function render()
     {
-        return view('livewire.template.basic.show-comments');
+        return view('livewire.templates.basic.show-comments');
     }
 }
