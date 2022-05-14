@@ -265,4 +265,22 @@ class WuasUserController extends Controller
         $notify[] = ['success', 'Notification Settings Updated successfully.'];
         return back()->withNotify($notify);
     }
+
+    public function aadFriendList()
+    {
+        $data = [
+            'page_title' => 'Add Friend',
+        ];
+
+        return view($this->activeTemplate . 'user.add_friend', $data);
+    }
+
+    public function followFriend()
+    {
+        $data = [
+            'page_title' => 'Follow Friend',
+        ];
+
+        return view($this->activeTemplate . 'user.follow', $data);
+    }
 }
