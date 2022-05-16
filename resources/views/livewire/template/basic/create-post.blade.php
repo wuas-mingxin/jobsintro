@@ -77,7 +77,18 @@
     window.addEventListener('closeModal', event => {
         document.getElementById("post_text").value = "";
         UIkit.modal('#create-post-modal').toggle();
-        UIkit.modal.alert('Post Created Successfully')
+        UIkit.modal.alert('Post Created Successfully');
+    })
+    
+    window.addEventListener('sharedPost', event => {
+
+        iziToast.show({
+            title: 'Create Post',
+            message: 'Post Created Successfully',
+            position: 'topRight',
+            color: 'green',
+        });
+        
     })
 </script>
 <div>

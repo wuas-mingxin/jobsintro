@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,6 +16,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AdminSeeder::class,
             WuasGeneralSettingSeeder::class,
+            WuasPostSeeder::class,
+            WuasShareSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
     }

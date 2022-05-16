@@ -16,12 +16,29 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'WUAS',
+            'firstname' => 'Umair',
+            'lastname' => 'Aqib',
             'username' => 'user',
             'email' => 'user@wuas.com',
-            'avtar' => 'wuas-content/upload/images/user.jpg',
-            'cover' => 'wuas-content/upload/images/user.jpg',
-            'background_image' => 'wuas-content/upload/images/user.jpg',
+            'avtar' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'cover' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'background_image' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
             'password' => Hash::make('password'),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Zeeshan',
+            'firstname' => 'Zeeshan',
+            'lastname' => 'Mughal',
+            'name' => 'Zeeshan',
+            'username' => 'zeeshan',
+            'email' => 'Zeeshan@zeeshan.com',
+            'avtar' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'cover' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'background_image' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'password' => Hash::make('password'),
+        ]);
+
+       
     }
 }

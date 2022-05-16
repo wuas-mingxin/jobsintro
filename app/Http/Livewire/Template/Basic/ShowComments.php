@@ -3,18 +3,24 @@
 namespace App\Http\Livewire\Template\Basic;
 
 use Livewire\Component;
+use Avihs\PostReply\Models\Comment;
 
 class ShowComments extends Component
 {
-    public $comments;
-    public $comment;
-    protected $listeners = ['commentAdded' => '$refresh'];
-    public function hydrate($comments)
+    public $post_id;
+    
+    public function mount($post_id){
+        $this->post_id = $post_id;
+    }
+
+    public function hydrate()
     {
-        $this->comments = $comments;
+        $this->comments = Comment::where('wuas_post_id',$this->post_id)->get();
     }
     public function render()
     {
-        return view('livewire.template.basic.show-comments');
+        $comments = Comment::where('wuas_post_id',$this->post_id)->get();
+        dd($comments);
+        return view('livewire.template.basic.show-comments',compact('comments'));
     }
 }

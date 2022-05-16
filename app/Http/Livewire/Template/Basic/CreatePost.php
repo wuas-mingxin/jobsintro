@@ -40,6 +40,7 @@ class CreatePost extends Component
         $post->post_text = $this->post_text;
         $post->status = 1;
         $post->save();
+        $this->emit('postAdded');
         $this->dispatchBrowserEvent('closeModal');  
     }
 }

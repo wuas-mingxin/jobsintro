@@ -13,9 +13,11 @@ class CreateWuasPostsTable extends Migration
      */
     public function up()
     {
+      
         Schema::create('wuas_posts', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->default(0);
+            $table->bigInteger('status')->default(0);
             $table->bigInteger('recipient_id')->default(0);
             $table->text('post_text')->nullable();
             $table->bigInteger('page_id')->default(0);
@@ -59,7 +61,8 @@ class CreateWuasPostsTable extends Migration
             $table->bigInteger('thread_id')->default(0);
             $table->bigInteger('video_views_id')->default(0);
             $table->string('post_record', 3000)->nullable();
-            $table->timestamps();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('created_at')->useCurrent()->useCurrentOnCreate();
         });
     }
 
@@ -70,6 +73,7 @@ class CreateWuasPostsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('wuas_posts');
     }
 }

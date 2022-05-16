@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/style.css') }}">
     <link rel="stylesheet" href="{{mix('css/app.css')}}"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('wuas-content/upload/plugins/loading/css/uprogress.min.css') }}">
     @livewireStyles
     @include('partials.seo')
 
@@ -85,7 +86,9 @@
     </script>
 
     @include('partials.notify')
-    
+   
+
+
     @livewireScripts
     <!-- Javascript
     ================================================== -->
@@ -96,5 +99,14 @@
     <script src="{{ asset($activeTemplateTrue . 'assets/js/custom.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue . 'assets/js/bootstrap-select.min.js') }}"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script src="{{ asset('wuas-content/upload/plugins/loading/js/uprogress.min.js') }}"></script>
+    <script>
+     
+    </script>
+    <style>
+        .uprogress .bar{
+            height:10px;
+        }
+    </style>
 </body>
 </html>

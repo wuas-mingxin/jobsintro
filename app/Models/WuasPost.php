@@ -19,6 +19,7 @@ class WuasPost extends Model
 {
     use HasComment,Likeable;
 
+    protected $fillable = ['id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'];
     protected $guarded = [];
     protected $with = ['user', 'comments'];
 
@@ -46,7 +47,10 @@ class WuasPost extends Model
         return $this->hasManyThrough(Reply::class, Comment::class);
     }
     
-   
+    public function sharedFrom(): belongsTo
+    {
+        return $this->belongsTo(User::class, 'shared_from');
+    }
 
     public function liked(): bool
     {

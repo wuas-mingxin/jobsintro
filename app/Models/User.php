@@ -9,10 +9,20 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Avihs\PostReply\Traits\HasPost;
 use Overtrue\LaravelLike\Traits\Liker;
+use Multicaret\Acquaintances\Traits\Friendable;
+use Multicaret\Acquaintances\Traits\CanFollow;
+use Multicaret\Acquaintances\Traits\CanBeFollowed;
+use Multicaret\Acquaintances\Traits\CanLike;
+use Multicaret\Acquaintances\Traits\CanBeLiked;
+use Multicaret\Acquaintances\Traits\CanRate;
+use Multicaret\Acquaintances\Traits\CanBeRated;
+
+
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,HasPost,Liker;
-
+   
     /**
      * The attributes that are mass assignable.
      *

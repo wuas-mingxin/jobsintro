@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\WuasPost;
 
 class WuasUserController extends Controller
 {
@@ -24,6 +25,7 @@ class WuasUserController extends Controller
         $data = [
             'page_title' => 'home'
         ];
+
 
         return view($this->activeTemplate . 'user.home', $data);
     }
