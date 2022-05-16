@@ -100,6 +100,7 @@ class CreateUsersTable extends Migration
             $table->decimal('balance', 18,8)->default('0.00000000');
             $table->string('paypal_email', 100)->nullable();
             $table->enum('notifications_sound', ['0','1'])->default(0);
+           
             $table->enum('order_posts_by', ['0','1'])->default(1);
             $table->enum('social_login', ['0','1'])->default(0);
             $table->string('android_m_device_id', 50)->nullable();

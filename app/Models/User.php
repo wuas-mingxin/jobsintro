@@ -21,7 +21,7 @@ use Multicaret\Acquaintances\Traits\CanBeRated;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasPost,Liker;
+    use HasApiTokens, HasFactory, Notifiable,HasPost,Liker,Notifiable;
    
     /**
      * The attributes that are mass assignable.

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Templates\Basic;
 
 use Livewire\Component;
 use App\Models\WuasPost;
+use App\Notifications\PostLiked;
 use Carbon\Carbon;
 class ShowPosts extends Component
 { 
@@ -46,6 +47,18 @@ class ShowPosts extends Component
     {
         $post = WuasPost::find($post);
         auth()->user()->toggleLike($post);
+        
+        $liked=[
+                'type'=>'like',
+                'info'=>'user Like the post',
+                'post_id'=>$post->id,
+                'notification_by'=>auth()->user()->id
+            ];
+
+        $notification = $post->user->notify(new PostLiked($liked));
+        
+        $this->emit('postLiked');
+       
     }
 
     public function sharePost($post)

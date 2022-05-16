@@ -39,7 +39,7 @@ class ShowPosts extends Component
         $commentPost = WuasPost::find($post);
         $comment = $commentPost->addComment($this->comment[$post], auth()->user());
         $this->comment[$post] = '';
-        $this->emit('commentAdded');
+        $this->emit('commentAdded',$post);
     }
    
     public function likePost($post)

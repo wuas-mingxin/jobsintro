@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\WuasPost;
+use App\Notifications\PostLiked;
 use App\Models\User;
 
 class WuasUserController extends Controller
@@ -27,7 +28,14 @@ class WuasUserController extends Controller
             'page_title' => 'home'
         ];
 
+        // $liked=[
+        //     'type'=>'like',
+        //     'info'=>'user Like the post',
+        //     'post_id'=>1,
+        // ];
 
+        // $notification = auth()->user()->notify(new PostLiked($liked,auth()->user()->id));
+        dd(auth()->user()->notifications[0]->notificationBy);
         return view($this->activeTemplate . 'user.home', $data);
     }
 

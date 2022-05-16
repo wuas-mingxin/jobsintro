@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Templates\Basic;
+namespace App\Http\Livewire\Template\Basic;
 
 use Livewire\Component;
 use Avihs\PostReply\Models\Comment;
@@ -8,20 +8,19 @@ use Avihs\PostReply\Models\Comment;
 class ShowComments extends Component
 {
     public $post_id;
-    
+    public $comments;
+    protected $listeners = ['commentAdded'];
     public function mount($post_id){
         $this->post_id = $post_id;
     }
 
-    public function hydrate()
+    public function commentAdded()
     {
         $this->comments = Comment::where('wuas_post_id',$this->post_id)->get();
     }
     public function render()
     {
-        $comments = Comment::where('wuas_post_id',$this->post_id)->get();
-        dd($comments);
-        return view('livewire.template.basic.show-comments',compact('comments'));
-        return view('livewire.templates.basic.show-comments');
+        $this->comments = Comment::where('wuas_post_id',$this->post_id)->get();
+        return view('livewire.template.basic.show-comments',['comments'=>$this->comments]);
     }
 }

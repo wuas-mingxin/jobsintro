@@ -24,11 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $activeTemplate = activeTemplate();
-        // $general = WuasGeneralSetting::first();
-        // $viewShare['general'] = $general;
-        // $viewShare['activeTemplate'] = $activeTemplate;
-        // $viewShare['activeTemplateTrue'] = activeTemplate(true);
-        // view()->share($viewShare);
+        $activeTemplate = activeTemplate();
+        $general = WuasGeneralSetting::first();
+        $viewShare['general'] = $general;
+        $viewShare['activeTemplate'] = $activeTemplate;
+        $viewShare['activeTemplateTrue'] = activeTemplate(true);
+        view()->share($viewShare);
     }
 }
