@@ -1,10 +1,12 @@
 <div>
     <form>
-         <div class="header-search-icon" uk-toggle="target: #wrapper ; cls: show-searchbox"> </div>
+         <div class="header-search-icon"> 
+
+         </div>
          <div class="header_search"><i class="uil-search-alt"></i>
-             <input type="text" class="form-control" name="search" wire:model="search" placeholder="Search for Friends , Videos and more.." autocomplete="off">
+             <input id="dropdownSearch" data-dropdown-toggle="searchDropDown"  type="text" class="form-control" name="search" wire:model.debouce.350ms="search" placeholder="Search for Friends , Videos and more.." autocomplete="off">
          </form>
-             <div uk-drop="mode: click" class="header_search_dropdown">
+             <div class="header_search_dropdown {{$search != '' ? 'block' : '' }}" id="searchDropDown">
 
                  <h4 class="search_title"> Recently </h4>
                  <ul>
