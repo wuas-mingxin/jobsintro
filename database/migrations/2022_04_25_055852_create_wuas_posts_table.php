@@ -61,6 +61,7 @@ class CreateWuasPostsTable extends Migration
             $table->bigInteger('thread_id')->default(0);
             $table->bigInteger('video_views_id')->default(0);
             $table->string('post_record', 3000)->nullable();
+            $table->bigInteger('shared_from')->default(0);
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('created_at')->useCurrent()->useCurrentOnCreate();
         });
