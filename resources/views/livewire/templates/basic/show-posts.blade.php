@@ -10,7 +10,7 @@
                         <img src="{{asset($post->sharedFrom->avtar)}}" class="bg-gray-200 border border-white rounded-full w-10 h-10"/>
                     </a>
                     <div class="flex-1 font-semibold capitalize">
-                        <a href="#" class="text-white dark:text-gray-100"> {{$post->sharedFrom->firstname." ".$post->sharedFrom->lastname}} is shared a post</a>
+                        <a href="#" class="dark:text-gray-100"> {{$post->sharedFrom->firstname." ".$post->sharedFrom->lastname}} is shared a post</a>
                         <div class="text-gray-700 flex items-center space-x-2">{{$post->created_at->diffForHumans()}} <ion-icon name="people"></ion-icon></div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                     <img src="{{asset($post->user->avtar)}}" class="bg-gray-200 border border-white rounded-full w-10 h-10"/>
                 </a>
                 <div class="flex-1 font-semibold capitalize">
-                    <a href="#" class="text-white dark:text-gray-100">{{$post->user->firstname." ".$post->user->lastname}}</a>
+                    <a href="#" class="dark:text-gray-100">{{$post->user->firstname." ".$post->user->lastname}}</a>
                     <div class="text-gray-700 flex items-center space-x-2">{{ $post->shared_from ==0 ? $post->created_at->diffForHumans() : ''}} <ion-icon name="people"></ion-icon></div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
         <div class="p-4 space-y-3">
 
             <div class="flex space-x-4 lg:font-bold">
-                <button class="flex items-center space-x-2 flex-1 justify-left  btn-like" wire:click="likePost('{{$post->id}}')">
+                <button class="flex items-center space-x-2 flex-1 justify-left  btn-like" wire:click.prevent="likePost('{{$post->id}}')">
                     <div class='p-2 rounded-full text-black {{$post->isLikedBy(auth()->user()) ? "lg:bg-blue-600 dark:bg-blue-600" : "lg:bg-grey-100 dark:bg-grey-100"}}'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="22" height="22" class="dark:text-gray-100">
                             <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
@@ -152,13 +152,14 @@
                 <input placeholder="Add your Comment.." name='comment' wire:model="comment.{{$post->id}}"  wire:keydown.enter="addCommentToDatabase('{{$post->id}}')" class="bg-transparent max-h-10 shadow-none px-5"/>
                 <div class="-m-0.5 absolute bottom-0 flex items-center right-3 text-xl">
                     <a href="#">
-                        <ion-icon name="happy-outline" class="hover:bg-gray-200 p-1.5 rounded-full"></ion-icon>
+                        <i class="fa fa-camera hover:bg-gray-200 p-1.5 rounded-full" aria-hidden="true"></i>
                     </a>
                     <a href="#">
-                        <ion-icon name="image-outline" class="hover:bg-gray-200 p-1.5 rounded-full"></ion-icon>
+                        <i class="fa fa-picture-o hover:bg-gray-200 p-1.5 rounded-full" aria-hidden="true"></i>
                     </a>
                     <a href="#">
-                        <ion-icon name="link-outline" class="hover:bg-gray-200 p-1.5 rounded-full"></ion-icon>
+                        <i class="fa fa-link hover:bg-gray-200 p-1.5 rounded-full" aria-hidden="true"></i>
+
                     </a>
                 </div>
             </div>

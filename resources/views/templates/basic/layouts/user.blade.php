@@ -15,6 +15,7 @@
 
     <!-- icons
     ================================================== -->
+    @livewireStyles
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/icons.css') }}">
     <!-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> -->
    
@@ -24,7 +25,9 @@
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'assets/css/style.css') }}">
     <link rel="stylesheet" href="{{mix('css/app.css')}}"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.5/dist/flowbite.min.css" />
     <link rel="stylesheet" href="{{ asset('wuas-content/upload/plugins/loading/css/uprogress.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     @livewireStyles
     @include('partials.seo')
 
@@ -88,7 +91,7 @@
     @include('partials.notify')
     @stack('javascript')
     <script src="{{mix('js/app.js')}}"></script>
-    @livewireScripts
+    
     <!-- Javascript
     ================================================== -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -99,9 +102,9 @@
     <script src="{{ asset($activeTemplateTrue . 'assets/js/bootstrap-select.min.js') }}"></script>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <script src="{{ asset('wuas-content/upload/plugins/loading/js/uprogress.min.js') }}"></script>
-    <script>
-     
-    </script>
+    <script src="https://unpkg.com/flowbite@1.4.5/dist/flowbite.js"></script>
+    
+    @livewireScripts
     <style>
         .uprogress .bar{
             height:10px;

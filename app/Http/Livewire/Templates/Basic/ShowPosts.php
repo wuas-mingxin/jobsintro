@@ -47,17 +47,18 @@ class ShowPosts extends Component
     {
         $post = WuasPost::find($post);
         auth()->user()->toggleLike($post);
-        
-        $liked=[
-                'type'=>'like',
-                'info'=>'user Like the post',
-                'post_id'=>$post->id,
-                'notification_by'=>auth()->user()->id
-            ];
+        if($post->isLikedBy(auth()->user()))
+        {
+            $liked=[
+                    'type'=>'like',
+                    'info'=>'user Like the post',
+                    'post_id'=>$post->id,
+                ];
 
-        $notification = $post->user->notify(new PostLiked($liked));
+            $notification = $post->user->notify(new PostLiked($liked,auth()->user()->id));
+        }
         
-        $this->emit('postLiked');
+        $this->emit('liked');
        
     }
 
@@ -79,7 +80,7 @@ class ShowPosts extends Component
     {
         $posts =  WuasPost::select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'))
         ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage);   
-        return view('livewire.templates.basic.show-posts',[
+        return view('livewire.'. activeTemplate() .'show-posts',[
             'posts'=>$posts
         ]);
     }

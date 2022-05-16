@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use App\Notifications\CustomDbChannel;
 
 class PostLiked extends Notification
 {
@@ -31,7 +30,8 @@ class PostLiked extends Notification
      */
     public function via($notifiable)
     {
-        return [CustomDbChannel::class];
+        $notifiable->notification_by = $this->notificationBy;
+        return [CustomNotificationChannel::class];
     }
 
     /**
@@ -40,8 +40,7 @@ class PostLiked extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
     //  */
-  
-    public function toDatabase($notifiable)
+    public function toCustomNotification($notifiable)
     {
         return [
             'type'=> $this->likedData['type'],
