@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\WuasPost;
 use App\Notifications\PostLiked;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 class ShowPosts extends Component
 { 
     
@@ -37,9 +39,18 @@ class ShowPosts extends Component
 
     public function addCommentToDatabase($post)
     {
+        if($this->comment[$post] == null) 
+            return null ;
         $commentPost = WuasPost::find($post);
         $comment = $commentPost->addComment($this->comment[$post], auth()->user());
         $this->comment[$post] = '';
+        $liked=[
+                'type'=>'comment',
+                'info'=>'commented the post',
+                'post_id'=>$post,
+            ];
+        $notification = $post->user->notify(new PostLiked($liked,1));
+        dd(auth()->user()->id);
         $this->emit('commentAdded');
     }
    

@@ -142,7 +142,7 @@
             {{-- /*Comments Section*/ --}}
             <div class={`border-t py-4 space-y-4 dark:border-gray-600 comments${value.id}`} id={`comments${value.id}`}>
                     @if($showComments['post_id'] == $post->id && $showComments['show'])
-                        @livewire('template.basic.show-comments',['post_id' => $post->id], key($post->id))
+                        @livewire(activeTemplate().'show-comments',['post_id' => $post->id], key($post->id))
                     @endif
             </div>
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Template\Basic;
+namespace App\Http\Livewire\Templates\Basic;
 
 use Livewire\Component;
 use Avihs\PostReply\Models\Comment;
@@ -21,6 +21,6 @@ class ShowComments extends Component
     public function render()
     {
         $this->comments = Comment::where('wuas_post_id',$this->post_id)->get();
-        return view('livewire.template.basic.show-comments',['comments'=>$this->comments]);
+        return view('livewire.'.activeTemplate().'show-comments',['comments'=>$this->comments]);
     }
 }

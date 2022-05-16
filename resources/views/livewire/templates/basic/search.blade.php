@@ -6,7 +6,7 @@
          <div class="header_search"><i class="uil-search-alt"></i>
              <input id="dropdownSearch" data-dropdown-toggle="searchDropDown"  type="text" class="form-control" name="search" wire:model.debouce.350ms="search" placeholder="Search for Friends , Videos and more.." autocomplete="off">
          </form>
-             <div class="header_search_dropdown {{$search != '' ? 'block' : '' }}" id="searchDropDown">
+             <div class="header_search_dropdown {{$search != '' ? 'block' : '' }}" id="searchDropDown" style="{{ $search != '' ? 'position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 54px);' : ''}}">
 
                  <h4 class="search_title"> Recently </h4>
                  <ul>
