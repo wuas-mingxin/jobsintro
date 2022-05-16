@@ -23,6 +23,9 @@ class UserSeeder extends Seeder
             'avtar' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
             'cover' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
             'background_image' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
+            'avtar' => 'wuas-content/upload/images/d-avatar.jpg',
+            'cover' => 'wuas-content/upload/images/d-cover.jpg',
+            'background_image' => 'wuas-content/upload/images/d-cover.jpg',
             'password' => Hash::make('password'),
         ]);
 

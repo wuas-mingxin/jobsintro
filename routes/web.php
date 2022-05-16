@@ -40,6 +40,8 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::get('notifications-settings', [App\Http\Controllers\WuasUserController::class, 'notifications'])->name('notify');
         Route::post('notifications-settings-update', [App\Http\Controllers\WuasUserController::class, 'notificationsUpdate'])->name('notify.update');
     });
+    Route::get('add-new-friend', [App\Http\Controllers\WuasUserController::class, 'aadFriendList'])->name('friend.list');
+    Route::get('follow-friend', [App\Http\Controllers\WuasUserController::class, 'followFriend'])->name('friend.list');
     Route::get('/posts', [App\Http\Controllers\WuasPostController::class, 'index'])->name('posts');
     Route::get('/comments/{post}', [App\Http\Controllers\CommentController::class, 'getCommentOfThisPost'])->name('posts.comments');
     Route::get('/comments/', [App\Http\Controllers\CommentController::class, 'getAllComments'])->name('posts.getAllComments');

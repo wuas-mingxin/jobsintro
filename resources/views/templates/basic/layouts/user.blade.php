@@ -86,9 +86,8 @@
     </script>
 
     @include('partials.notify')
-   
-
-
+    @stack('javascript')
+    <script src="{{mix('js/app.js')}}"></script>
     @livewireScripts
     <!-- Javascript
     ================================================== -->

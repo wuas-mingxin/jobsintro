@@ -14,7 +14,7 @@
                     <img src="{{asset(auth()->user()->avtar)}}"
                         class="bg-gray-200 border border-white rounded-full w-11 h-11">
                     <div class="flex-1 pt-2">
-                        <textarea wire:model.debounce.500ms="post_text" id="post_text" class="uk-textare text-white shadow-none focus:shadow-none text-xl font-medium resize-none" rows="5"
+                        <textarea wire:model.debounce.500ms="post_text" id="post_text" class="uk-textare shadow-none focus:shadow-none text-xl font-medium resize-none" rows="5"
                             placeholder="What's Your Mind ? {{auth()->user()->firstname}}!"> </textarea>
                     </div>
 
