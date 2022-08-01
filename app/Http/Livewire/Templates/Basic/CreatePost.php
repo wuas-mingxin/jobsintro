@@ -38,7 +38,7 @@ class CreatePost extends Component
         }
         $post->user_id = auth()->user()->id;
         $post->post_text = $this->post_text;
-        $post->status = 1;
+        $post->status = 0;
         $post->save();
         $this->emit('postAdded');
         $this->dispatchBrowserEvent('closeModal');  

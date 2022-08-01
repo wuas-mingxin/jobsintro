@@ -1,4 +1,5 @@
 <div>
+    
 @foreach($posts as $post)
     <div wire:key={{$loop->index}} class="card lg:mx-0 uk-animation-slide-bottom-small mt-2">
     
@@ -172,4 +173,19 @@
         Load more ..</button>
 </div>
 
+<script>
+// var total = 0;  
+
+// setInterval(() => {
+//         $.get("{{route('user.posts')}}", function(data, status){
+//             if(data.total > total){ 
+//                 @this.posts = data
+//             }
+//             @this.posts = data
+//             console.log("Outside"+total);
+//         });
+//     }, 3000);
+
+
+</script>
 </div>

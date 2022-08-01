@@ -7,15 +7,21 @@ use Livewire\Component;
 class Notifications extends Component
 {
 
-    protected $listeners = ['liked'];
+    protected $listeners = ['totalNotifications'];
     public $notifications;
-    public function liked()
+    public $totalNotifications;
+    public function totalNotifications()
     {
-        $this->notifications = auth()->user()->notifications;
+        $this->totalNotifications = count(auth()->user()->unreadNotifications);
     }
+
     public function render()
     {
         $this->notifications = auth()->user()->notifications;
-        return view('livewire.templates.basic.notifications',['notifications'=>$this->notifications]);
+        $this->totalNotifications = count(auth()->user()->unreadNotifications);
+        return view('livewire.'.activeTemplate().'notifications',[
+            'notifications'=>$this->notifications,
+            'totalNotifications'=>$this->totalNotifications
+        ]);
     }
 }

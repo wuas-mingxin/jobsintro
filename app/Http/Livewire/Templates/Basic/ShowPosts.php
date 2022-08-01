@@ -7,20 +7,25 @@ use App\Models\WuasPost;
 use App\Notifications\PostLiked;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-
+use Livewire\WithPagination;
 class ShowPosts extends Component
-{ 
-    
-   
+{   
+    use WithPagination;
     public $comment= [];
     public $showComments = ['post_id'=> 0, 'show'=>false];
     public $perPage=5;
     public $showProgressBar;
     protected $listeners = ['postAdded' => '$refresh'];
+    
 
     public function hydrate()
     {
         $this->dispatchBrowserEvent('showLoadingBar');
+    }
+    
+    public function updateDatabase()
+    {
+        
     }
     
     public function dehydrate()
@@ -49,27 +54,24 @@ class ShowPosts extends Component
                 'info'=>'commented the post',
                 'post_id'=>$post,
             ];
-        $notification = $post->user->notify(new PostLiked($liked,1));
-        dd(auth()->user()->id);
+        $notification = $commentPost->user->notify(new PostLiked($liked,auth()->user()->id));
         $this->emit('commentAdded');
     }
    
-    public function likePost($post)
+    public function likePost($id)
     {
-        $post = WuasPost::find($post);
+        $post = WuasPost::find($id);
         auth()->user()->toggleLike($post);
         if($post->isLikedBy(auth()->user()))
         {
             $liked=[
                     'type'=>'like',
-                    'info'=>'user Like the post',
-                    'post_id'=>$post->id,
+                    'info'=>'liked your post',
+                    'post_id'=>$id,
                 ];
 
             $notification = $post->user->notify(new PostLiked($liked,auth()->user()->id));
         }
-        
-        $this->emit('liked');
        
     }
 
@@ -90,7 +92,7 @@ class ShowPosts extends Component
     public function render()
     {
         $posts =  WuasPost::select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'))
-        ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage);   
+        ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage); 
         return view('livewire.'. activeTemplate() .'show-posts',[
             'posts'=>$posts
         ]);
