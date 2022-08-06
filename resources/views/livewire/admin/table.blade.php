@@ -36,7 +36,7 @@
                                     <td>{!! statusShower($post->status) !!}</td>
                                     <td>{{diffForHumans($post->created_at)}}</td>
                                     <td>
-                                        <button class="btn btn-sm btn-outline--info info"> Info </button>
+                                        <button class="btn btn-sm btn-outline--info info" id='info' data-post_text="{{$post->post_text}}" data-username="{{$post->user->username}}" data-post_file="{{asset($post->post_file)}}"> Info </button>
                                         @if($post->status != 1 || $post->status == 0)<button class="btn btn-sm btn-outline--primary" wire:click="$emit('updatePost', {{$post->id}}, 1)"> Approve</button>@endif
                                         @if($post->status != 2 || $post->status == 0)<button class="btn btn-sm btn-outline--danger" wire:click="$emit('updatePost', {{$post->id}}, 2)"> Reject</button>@endif
                                     </td>
@@ -59,19 +59,19 @@
             </div>
         </div>
     </div>
-    @livewire('modal', ['post' => $post], key($post->id))
+    @livewire('modal')
 @push('script')
 <script>
-    (function ($) {
-        "use strict";
-        $(document).on('click','.info', function () {
-            var modal   = $('#confirmationModal');
-            let data    = $(this).data();
-            modal.find('.question').text(`${data.question}`);
-            modal.find('form').attr('action', `${data.action}`);
-            modal.modal('show');
-        });
-    })(jQuery);
+    $(document).on('click','#info', function () {
+        var modal   = $('#postinfo');
+        let data    = $(this).data();
+        console.log(data)
+        modal.find('#username').text(`${data.username}`);
+        modal.find('#post_text').text(`${data.post_text}`);
+        modal.find('#post_file').attr("src",`${data.post_file}`);
+        modal.find('form').attr('action', `${data.action}`);
+        modal.modal('show');
+    });
 </script>
 @endpush
 </div>
