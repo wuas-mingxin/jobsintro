@@ -22,7 +22,7 @@ use Multicaret\Acquaintances\Traits\CanBeRated;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable,HasPost,Liker,Notifiable;
-   
+
     /**
      * The attributes that are mass assignable.
      *
@@ -57,4 +57,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // SCOPES
+    public function scopeActive()
+    {
+        return $this->where('status', 1);
+    }
+
+    public function scopeBanned()
+    {
+        return $this->where('status', 0);
+    }
+
+    public function scopeWithBalance()
+    {
+        return $this->where('balance','>', 0);
+    }
 }
