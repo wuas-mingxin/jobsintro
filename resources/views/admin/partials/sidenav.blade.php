@@ -109,6 +109,13 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="sidebar-menu-item {{menuActive('admin.post.*')}}">
+                    <a href="{{route('admin.post.index')}}" class="nav-link ">
+                        <i class="menu-icon las la-home"></i>
+                        <span class="menu-title">@lang('Manange posts')</span>
+                    </a>
+                </li>
             </ul>
             <div class="text-center mb-3 text-uppercase">
                 <span class="text--primary">{{__(systemDetails()['name'])}}</span>

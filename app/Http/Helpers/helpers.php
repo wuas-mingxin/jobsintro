@@ -15,6 +15,18 @@ function systemDetails()
     return $system;
 }
 
+function statusShower($status)
+{
+    switch($status){
+        case 0:
+            return "<span class='text-small badge font-weight-normal badge--warning'>Pending</span>";
+        case 1:
+            return "<span class='text-small badge font-weight-normal badge--success'>Active</span>";
+        default:
+            return "<span class='text-small badge font-weight-normal badge--danger'>Rejected</span>";
+    }
+}
+
 function slug($string)
 {
     return Illuminate\Support\Str::slug($string);

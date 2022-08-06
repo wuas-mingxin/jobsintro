@@ -31,6 +31,10 @@ class WuasPost extends Model
 	    return $this->belongsTo(User::class);
 	}
 
+    public function statusChanger($status) {
+        $this->status = $status;
+        return $this;
+    }
 	/**
 	 * Get all of the comments for the post.
 	 */

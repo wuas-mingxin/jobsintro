@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('wuas-admin/css/vendor/bootstrap-pincode-input.css') }}">
     <link rel="stylesheet" href="{{ asset('wuas-admin/css/app.css') }}">
 
-
+    @livewireStyles
     @stack('style')
 </head>
 <body>
@@ -58,7 +58,7 @@
         });
     })(jQuery);
 </script>
-
+@livewireScripts
 @stack('script')
 
 
