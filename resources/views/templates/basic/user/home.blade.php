@@ -54,7 +54,7 @@
             </div>
             <div class="lg:w-72 w-full">
 
-                <a href="#birthdays" uk-toggle>
+                {{-- <a href="#birthdays" uk-toggle>
                     <div class="bg-white mb-5 px-4 py-3 rounded-md shadow">
                         <h3 class="text-line-through font-semibold mb-1"> Birthdays </h3>
                         <div class="-mx-2 duration-300 flex hover:bg-gray-50 px-2 py-2 rounded-md">
@@ -64,7 +64,7 @@
                             </p>
                         </div>
                     </div>
-                </a>
+                </a> --}}
 
                 <h3 class="text-xl font-semibold"> Contacts </h3>
                 <!-- Right Sidebar -->
@@ -84,7 +84,7 @@
                                 <img src="{{asset(auth()->user()->avtar)}}" alt="">
                                 <span class="user_status status_online"></span>
                             </div>
-                            <div class="contact-username"> Talha Khan</div>
+                            <div class="contact-username"> {{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}</div>
                         </a>
 
                         <div uk-drop="pos: left-center ;animation: uk-animation-slide-left-small">

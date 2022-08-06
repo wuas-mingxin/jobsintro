@@ -33,29 +33,35 @@
             <a href="https://jobsintro.com">
                 <img src="{{ $general->website_logo }}" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
             </a>
-            <a href="{{route('register')}}"  class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</a>
+            @auth
+            @else
+                <a href="{{route('register')}}" class="px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up</a>
+            @endauth
             </div>
+            @auth
+                <a href="{{route('user.home')}}" class="mt-3 px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Timeline</a>
+            @else
+                <form class="mt-sm-3 ml-auto" method="post" action="{{route('login')}}">
+                    @csrf
+                    <div class="container">
+                        <div class="row items-center">
+                            <div class="col-md-5 col-sm-12">
+                                <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+                                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Username" required="">
+                            </div>
 
-            <form class="mt-sm-3 ml-auto" method="post" action="{{route('login')}}">
-                @csrf
-                <div class="container">
-                    <div class="row items-center">
-                        <div class="col-md-5 col-sm-12">
-                            <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
-                            <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Username" required="">
-                        </div>
+                            <div class="col-md-5 col-sm-12">
+                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
+                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
+                            </div>
+                            <div class="col-md-2 col-sm-6">
+                                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 py-2 mt-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</button>
+                            </div>
 
-                        <div class="col-md-5 col-sm-12">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required="">
                         </div>
-                        <div class="col-md-2 col-sm-6">
-                            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 py-2 mt-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign In</button>
-                        </div>
-
                     </div>
-                </div>
-            </form>
+                </form>
+            @endauth
         </div>
     </nav>
 <div class="container-fluid">
