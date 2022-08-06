@@ -27,7 +27,6 @@ Route::prefix('password')->name('password.')->group(function(){
     Route::get('reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('reset');
     Route::post('reset', [ForgotPasswordController::class, 'sendResetCodeEmail']);
 });
-
 Route::prefix('users')->name('users.')->group(function(){
     Route::get('/', [ManageUserController::class, 'allUsers'])->name('all');
     Route::get('active', [ManageUserController::class, 'activeUsers'])->name('active');
@@ -38,3 +37,5 @@ Route::prefix('users')->name('users.')->group(function(){
     Route::get('login/{id}', [ManageUserController::class, 'login'])->name('login');
     Route::post('status/{id}', [ManageUserController::class, 'status'])->name('status');
 });
+
+Route::resource('post',PostController::class);

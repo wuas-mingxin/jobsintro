@@ -23,7 +23,7 @@ class GuestPost extends Component
     }
     public function render()
     {
-        $posts =  WuasPost::select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'))
+        $posts =  WuasPost::with('sharedFrom')->select(array('id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'))
         ->with(['user','comments'])->where('status',1)->orderBy('id','DESC')->paginate($this->perPage); 
         
         return view('livewire.'. activeTemplate() .'guest-post',[
