@@ -19,7 +19,7 @@
                             <tr>
                                 <th>@lang('#') </th>
                                 <th>@lang('Username')</th>
-                                <th>@lang('Post text')</th>
+                                <th style="width:20%;">@lang('Post text')</th>
                                 <th>@lang('Post file')</th>
                                 <th>@lang('status')</th>
                                 <th>@lang('Posted at')</th>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{$loop->index + 1}}</td>
                                     <td>{{$post->user->username}}</td>
-                                    <td>{{$post->post_text}}</td>
+                                    <td style="width:200px!important; overflow:hidden;"><p style="width:200px; ">{{$post->post_text}}</p></td>
                                     <td><img src="{{asset($post->post_file)}}"/></td>
                                     <td>{!! statusShower($post->status) !!}</td>
                                     <td>{{diffForHumans($post->created_at)}}</td>
@@ -53,7 +53,7 @@
                 </div>
                 @if ($posts->hasPages())
                     <div class="card-footer py-4">
-                        {{ paginateLinks($posts) }}
+                        {{ $posts->links() }}
                     </div>
                 @endif
             </div>

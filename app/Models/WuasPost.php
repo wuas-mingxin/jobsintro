@@ -15,9 +15,10 @@ use Avihs\PostReply\Traits\HasComment;
 use Overtrue\LaravelLike\Traits\Likeable;
 use Overtrue\LaravelLike\Like;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class WuasPost extends Model
 {
-    use HasComment,Likeable;
+    use HasComment,Likeable,HasFactory;
 
     protected $fillable = ['id','post_text','post_file_name','post_file_thumb','user_id','created_at','post_file','shared_from'];
     protected $guarded = [];
