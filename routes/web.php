@@ -50,11 +50,9 @@ Route::name('user.')->prefix('user')->group(function () {
 });
 
 
-Route::middleware('guest:admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/login', [App\Http\Controllers\Admin\AdminController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [App\Http\Controllers\Admin\AdminController::class, 'login'])->name('login');
+Route::middleware('guest:admin')->prefix('wuas-login')->name('admin.')->group(function(){
+    Route::get('/', [App\Http\Controllers\Admin\AdminController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [App\Http\Controllers\Admin\AdminController::class, 'login'])->name('login.submit');
 });
 
-Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::get('/dashboard', function (){return "admin";})->name('dashboard');
-});
+Route::get('placeholder-image/{size}', [App\Http\Controllers\HomeController::class, 'placeholderImage'])->name('placeholder.image');

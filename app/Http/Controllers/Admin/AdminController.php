@@ -12,7 +12,11 @@ class AdminController extends Controller
 {
     public function showLoginForm()
     {
-        return view('admin.auth.login');
+        $data = [
+            'pageTitle' => 'Login Page'
+        ];
+
+        return view('admin.auth.login', $data);
     }
 
     /**
@@ -38,7 +42,8 @@ class AdminController extends Controller
         }
         else
         {
-            return redirect()->route('admin.login')->with('fail','Invalid Credetials');
+            $notify[] = ['error', 'Credentials does\'t match'];
+            return redirect()->route('admin.login')->withNotify($notify);
         }
 
     }
@@ -68,7 +73,7 @@ class AdminController extends Controller
      */
     public function username()
     {
-        return 'email';
+        return 'username';
     }
 
     /**
@@ -83,7 +88,7 @@ class AdminController extends Controller
 
         $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+        // $request->session()->regenerateToken();
 
         if ($response = $this->loggedOut($request)) {
             return $response;
@@ -91,7 +96,7 @@ class AdminController extends Controller
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/');
+            : redirect('/wuas-login');
     }
 
     /**
