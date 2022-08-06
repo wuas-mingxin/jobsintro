@@ -19,7 +19,7 @@ class CommentController extends Controller
 
     function addComment(Request $request)
     {
-        $post = WuasPost::find($request->post_id);
+        $post = WuasPost::with('sharedFrom')->find($request->post_id);
         $comment = $post->addComment($request->comment, auth()->user());
         return response()->json($post->comments);
     }

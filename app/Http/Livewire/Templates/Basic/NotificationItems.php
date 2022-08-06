@@ -14,7 +14,7 @@ class NotificationItems extends Component
     public function getNotifications(){
         $this->totalNotifications = count(auth()->user()->notifications);
         if(count($this->notifications) < $this->totalNotifications){
-            $this->notifications = auth()->user()->notifications;    
+            $this->notifications = auth()->user()->notifications;
             $this->emit('totalNotifications');
         }
     }

@@ -27,7 +27,7 @@ class WuasUserController extends Controller
         $data = [
             'page_title' => 'home'
         ];
-
+        // dd(auth()->user()->notifications[0]->notificationBy);
         return view($this->activeTemplate . 'user.home', $data);
     }
 

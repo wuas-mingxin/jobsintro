@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Templates\Basic;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class Notifications extends Component
@@ -18,6 +19,7 @@ class Notifications extends Component
     public function render()
     {
         $this->notifications = auth()->user()->notifications;
+        Log::info($this->notifications[0]->notificationBy);
         $this->totalNotifications = count(auth()->user()->unreadNotifications);
         return view('livewire.'.activeTemplate().'notifications',[
             'notifications'=>$this->notifications,
