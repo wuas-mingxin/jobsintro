@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('wuas-admin/css/vendor/bootstrap-clockpicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('wuas-admin/css/vendor/bootstrap-pincode-input.css') }}">
     <link rel="stylesheet" href="{{ asset('wuas-admin/css/app.css') }}">
-
+    <script src="https://cdn.tailwindcss.com"></script>
     @livewireStyles
     @stack('style')
 </head>

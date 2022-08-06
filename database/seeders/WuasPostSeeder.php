@@ -23,12 +23,6 @@ class WuasPostSeeder extends Seeder
            
         ]);
 
-        DB::table('wuas_posts')->insert([
-            'post_text' => 'This is my Post',
-            'user_id' => '1',
-            'post_file' => 'wuas-content/upload/images/user/2022/04/aneesa.jpg',
-            'status' => 1,
-            'shared_from' => 2
-        ]);
+        
     }
 }

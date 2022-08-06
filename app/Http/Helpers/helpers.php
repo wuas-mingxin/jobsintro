@@ -77,7 +77,7 @@ function getPaginate($paginate = 20)
 
 function paginateLinks($data)
 {
-    return $data->appends(request()->all())->links();
+    return $data->appends(request()->all())->links('partials.paginator');
 }
 
 function get_image($image, $clean = '')

@@ -13,12 +13,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserSeeder::class,
-            AdminSeeder::class,
-            WuasGeneralSettingSeeder::class,
-            WuasPostSeeder::class,
-            WuasShareSeeder::class,
+            // UserSeeder::class,
+            // AdminSeeder::class,
+            // WuasGeneralSettingSeeder::class,
+            // WuasPostSeeder::class,
+            // WuasShareSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
+        \App\Models\WuasPost::factory(500)->create();
     }
 }
